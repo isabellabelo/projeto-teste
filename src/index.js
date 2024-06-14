@@ -5,6 +5,8 @@ import reportWebVitals from './reportWebVitals';
 import { createGlobalStyle } from 'styled-components';
 import { BrowserRouter, Routes,Route } from 'react-router-dom';
 import Cabecalho from './componentes/Cabecalho/Cabecalho';
+import { ThemeProvider } from '@emotion/react';
+import meuTheme from './theme/meuTheme';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -26,6 +28,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>    
     <GlobalStyle/>
+    <ThemeProvider theme={meuTheme}>
     <BrowserRouter>
       <Cabecalho/>
       <Routes>
@@ -34,6 +37,7 @@ root.render(
         <Route path='/cadastrarproduto' element={<h1>Cadastrar</h1>}/>
       </Routes>
     </BrowserRouter>
+    </ThemeProvider>
     
   </React.StrictMode>
 );
